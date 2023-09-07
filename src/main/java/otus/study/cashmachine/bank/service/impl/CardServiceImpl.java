@@ -40,6 +40,7 @@ public class CardServiceImpl implements CardService {
             cardsDao.saveCard(card);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -79,7 +80,7 @@ public class CardServiceImpl implements CardService {
     }
 
     private void checkPin(Card card, String pin) {
-        if (!getHash(pin).equals(card.getPinCode())) {
+        if (!getHash(pin).equals(getHash(card.getPinCode()))) {
             throw new IllegalArgumentException("Pincode is incorrect");
         }
     }

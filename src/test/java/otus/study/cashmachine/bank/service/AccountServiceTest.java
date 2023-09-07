@@ -39,7 +39,6 @@ public class AccountServiceTest {
         assertEquals(savedAccount.getId(), createdAccount.getId());
         assertEquals(initialAmount, createdAccount.getAmount());
     }
-
     @Test
     void testGetMoney() {
         Long accountId = 1L;

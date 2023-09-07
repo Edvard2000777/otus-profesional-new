@@ -80,7 +80,6 @@ class CashMachineServiceTest {
         assertEquals(Collections.emptyList(), result);
     }
 
-
     @Test
     void changePin() {
         // Подготовка данных для теста

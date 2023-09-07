@@ -66,7 +66,6 @@ public class CardServiceTest {
         assertEquals(BigDecimal.ONE, amountCaptor.getValue());
         assertEquals(100L, idCaptor.getValue().longValue());
     }
-
     @Test
     void putMoney() {
     }

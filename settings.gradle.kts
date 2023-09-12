@@ -7,3 +7,7 @@
  */
 
 rootProject.name = "otus-profesional-new"
+include( "hw01-gradle")
+
+include( "hw3-generici")
+include( "hw02-testQA")

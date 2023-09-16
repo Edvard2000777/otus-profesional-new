@@ -18,6 +18,7 @@ import static org.mockito.Mockito.*;
 public class AccountServiceTest {
     private AccountDao accountDao;
     private AccountServiceImpl accountServiceImpl;
+
     @BeforeEach
     void setUp() {
         accountDao = mock(AccountDao.class);
@@ -39,6 +40,7 @@ public class AccountServiceTest {
         assertEquals(savedAccount.getId(), createdAccount.getId());
         assertEquals(initialAmount, createdAccount.getAmount());
     }
+
     @Test
     void testGetMoney() {
         Long accountId = 1L;
@@ -61,10 +63,8 @@ public class AccountServiceTest {
         Long accountId = 1L;
         BigDecimal initialAmount = new BigDecimal("100.00");
         Account account = new Account(accountId, initialAmount);
-
         // Заглушка для метода getAccount
         when(accountDao.getAccount(accountId)).thenReturn(account);
-
         BigDecimal amountToDeposit = new BigDecimal("50.00");
         BigDecimal expectedBalance = initialAmount.add(amountToDeposit);
 
@@ -72,6 +72,11 @@ public class AccountServiceTest {
         BigDecimal newBalance = accountServiceImpl.putMoney(accountId, amountToDeposit);
         assertEquals(expectedBalance, newBalance);
     }
+
+
+
+
+
 
     @Test
     void testCheckBalance() {

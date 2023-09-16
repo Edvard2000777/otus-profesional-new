@@ -75,17 +75,19 @@ class CashMachineServiceTest {
         when(moneyBoxService.getMoney(any(), anyInt())).thenReturn(Collections.emptyList());
         // Вызываем метод getMoney
         var result = cashMachineService.getMoney(cashMachine, cardNumber, pinCode, new BigDecimal("123.44"));
-
         // Проверяем, что результат равен ожидаемой сумме
         assertEquals(Collections.emptyList(), result);
     }
-
     @Test
     void changePin() {
         // Подготовка данных для теста
         String cardNumber = "1234567890";
         String oldPin = "1234";
         String newPin = "5678";
+
+
+
+
 
         // Создаем заглушку для карты, которая будет возвращена из cardsDao
         Card card = new Card(12123L, cardNumber, 45345234L, oldPin);

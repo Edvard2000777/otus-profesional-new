@@ -84,18 +84,11 @@ class CashMachineServiceTest {
         String cardNumber = "1234567890";
         String oldPin = "1234";
         String newPin = "5678";
-
-
-
-
-
         // Создаем заглушку для карты, которая будет возвращена из cardsDao
         Card card = new Card(12123L, cardNumber, 45345234L, oldPin);
         when(cardsDao.getCardByNumber(cardNumber)).thenReturn(card);
-
         // Создаем ArgumentCaptor для Card объекта
         ArgumentCaptor<Card> cardCaptor = ArgumentCaptor.forClass(Card.class);
-
         // Вызываем метод changePin
         boolean result = cashMachineService.changePin(cardNumber, oldPin, newPin);
 

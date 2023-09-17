@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-
 public class AccountServiceTest {
     private AccountDao accountDao;
     private AccountServiceImpl accountServiceImpl;
@@ -72,11 +71,6 @@ public class AccountServiceTest {
         BigDecimal newBalance = accountServiceImpl.putMoney(accountId, amountToDeposit);
         assertEquals(expectedBalance, newBalance);
     }
-
-
-
-
-
 
     @Test
     void testCheckBalance() {

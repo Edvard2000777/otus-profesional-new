@@ -27,7 +27,6 @@ public class AccountServiceTest {
     void testCreateAccount() {
         // Создаем заглушку для сохраненного аккаунта
         Account savedAccount = new Account(1L, BigDecimal.ZERO);
-
         // Когда accountDao.saveAccount вызывается с любым аккаунтом, вернуть заглушку
         when(accountDao.saveAccount(any(Account.class))).thenReturn(savedAccount);
 

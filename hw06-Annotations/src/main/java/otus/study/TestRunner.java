@@ -1,3 +1,5 @@
+package otus.study;
+
 import otus.study.After;
 import otus.study.Before;
 import otus.study.Test;

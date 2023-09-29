@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyTestClass {
-    private List<Integer> list;
+    List<Integer> list;
+    // Nнициализация перед выполнением тестов
     @Before
     public void setUp() {
-        // Инициализация перед выполнением тестов
+
         list = new ArrayList<>();
         list.add(1);
         list.add(2);

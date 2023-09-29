@@ -1,20 +1,16 @@
 package otus.study;
 
-import otus.study.After;
-import otus.study.Before;
-import otus.study.Test;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class TestRunner {
-    public static void runTests(String className) throws InvocationTargetException {
+    public static void runTests(Class<?> clazz) throws InvocationTargetException {
         int totalTests = 0;
         int passedTests = 0;
         int failedTests = 0;
 
         try {
-            Class<?> clazz = Class.forName(className);
             Object testObject = clazz.newInstance();
 
             for (Method method : clazz.getDeclaredMethods()) {
@@ -34,7 +30,6 @@ public class TestRunner {
                         failedTests++;
                     }
                 }
-
             }
 
             for (Method method : clazz.getDeclaredMethods()) {
@@ -43,7 +38,7 @@ public class TestRunner {
                 }
             }
 
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
@@ -53,8 +48,6 @@ public class TestRunner {
     }
 
     public static void main(String[] args) throws InvocationTargetException {
-        runTests("MyTestClass");
+        runTests(TestRunner.class); // Замените MyTestClass на класс, который хотите тестировать
     }
-
-
 }

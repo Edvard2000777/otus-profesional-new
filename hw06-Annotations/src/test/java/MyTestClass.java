@@ -1,5 +1,6 @@
 import otus.study.After;
 import otus.study.Before;
+import otus.study.CustomToString;
 import otus.study.Test;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 public class MyTestClass {
     List<Integer> list;
     // Nнициализация перед выполнением тестов
+    @CustomToString()
     @Before
     public void setUp() {
 
@@ -15,7 +17,7 @@ public class MyTestClass {
         list.add(1);
         list.add(2);
     }
-
+    @CustomToString()
     @Test
     public void testAddElement() {
         // Проверка добавления элемента
@@ -24,7 +26,7 @@ public class MyTestClass {
         int newSize = list.size();
         assert newSize == initialSize + 1 : "Failed to add element to the list";
     }
-
+    @CustomToString()
     @Test
     public void testRemoveElement() {
         // Проверка удаления элемента
@@ -33,7 +35,7 @@ public class MyTestClass {
         int newSize = list.size();
         assert newSize == initialSize - 1 : "Failed to remove element from the list";
     }
-
+    @CustomToString()
     @After
     public void tearDown() {
         // Логика завершения после выполнения тестов

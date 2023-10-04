@@ -3,8 +3,8 @@ package otus.study;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-public class TestRunner {
+@CustomToString
+public class TestRunner   {
     public static void runTests(Class<?> clazz) throws InvocationTargetException {
         int totalTests = 0;
         int passedTests = 0;

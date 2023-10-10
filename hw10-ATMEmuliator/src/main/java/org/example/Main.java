@@ -22,8 +22,6 @@ public class Main {
         }else { System.out.println("Не удалось выдать " + withdrawalAmount + " рублей");}
 
 
-       // System.out.println( priem.getHashmap(inputNumber,inputNumber2));
-
 
     }
 }

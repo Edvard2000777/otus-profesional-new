@@ -27,10 +27,12 @@ public class ATMEmuliator {
 
         if (remainigAmount == 0) {
             for (int denomination : result.keySet()) {
-                hashmap.put(denomination,hashmap.get(denomination)-result.get(denomination));
+                hashmap.put(denomination, hashmap.get(denomination) - result.get(denomination));
             }
             return true;
-        }else {return false; }
+        } else {
+            return false;
+        }
 
 
     }

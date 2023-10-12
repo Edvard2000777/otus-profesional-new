@@ -3,7 +3,7 @@ package org.example;
 import java.util.*;
 
 public class ATMEmuliator {
-    Map<Integer, Integer> hashmap = new HashMap<Integer, Integer>();
+    private Map<Integer, Integer> hashmap = new HashMap<Integer, Integer>();
 
     public void addBanknotes(int denomination, int count) {
         hashmap.put(denomination, count);
@@ -35,5 +35,23 @@ public class ATMEmuliator {
         }
 
 
+    }
+
+    public void demonstration()
+    {
+        hashmap.put(5000, 2);
+        hashmap.put(10, 3);
+        hashmap.put(50, 44);
+        hashmap.put(100, 33);
+        hashmap.put(200, 3);
+        hashmap.put(500, 23);
+        hashmap.put(1000, 23);
+        hashmap.put(2000, 3);
+        int withdrawalAmount = 10000;
+        if (withdraw(withdrawalAmount)) {
+            System.out.println("Выдано " + withdrawalAmount + " рублей");
+        } else {
+            System.out.println("Не удалось выдать " + withdrawalAmount + " рублей");
+        }
     }
 }

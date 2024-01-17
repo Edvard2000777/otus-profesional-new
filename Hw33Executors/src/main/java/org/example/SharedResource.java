@@ -1,37 +1,34 @@
 package org.example;
+import java.util.concurrent.Semaphore;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class SharedResource {
     private int count = 1;
-    private boolean increasing = true;
+    private Semaphore semaphore = new Semaphore(1);
 
-    public synchronized void printNumbers() {
-        while (count >= 1 && count <= 10) {
-            if (increasing) {
-                System.out.print("Поток 1:" + count + " ");
-                count++;
-                if (count > 10) {
-                    increasing = false;
-                    count = 9;
+    public void printNumbers() {
+        try {
+            while (count >= 1 && count <= 10) {
+                semaphore.acquire(); // Захватываем разрешение
+
+                System.out.print(Thread.currentThread().getName() + ":" + count + " ");
+
+                if (Thread.currentThread().getName().equals("Поток 1")) {
+                    count++;
+                    if (count > 10) {
+                        count = 9;
+                    }
+                } else {
+                    count--;
+                    if (count < 1) {
+                        count = 2;
+                    }
                 }
-            } else {
-                System.out.print("Поток 2:" + count + " ");
-                count--;
-                if (count < 1) {
-                    increasing = true;
-                    count = 2;
-                }
+
+                semaphore.release(); // Освобождаем разрешение
             }
-            notify(); // Уведомляем другой поток, чтобы он мог выполнить свою часть
-            try {
-                if (count >= 1 && count <= 10) {
-                    wait(); // Ожидаем, чтобы другой поток мог напечатать свое число
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

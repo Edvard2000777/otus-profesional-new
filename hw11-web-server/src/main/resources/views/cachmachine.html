@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Блок функционала снятия наличных</p>
+Укажите номер карты, PIN код и сумму для снятия
+<form action="getmoney" method="post">
+    <fieldset>
+        <input type="number" name="card"/>
+        <input type="password" name="pin"/>
+        <input type="number" name="value"/>
+        <input type="submit" value="Получить наличные"/>
+        <p></p>
+        <p>Взяты наличные</p>>
+        <p th:text="${takenAmount}"></p>
+    </fieldset>
+</form>
+<p>Блок функционала пополнения счета</p>
+Укажите номер карты, PIN код и сумму поплнения
+<form action="putmoney" method="post">
+    <fieldset>
+        <input type="number" name="card"/>
+        <input type="password" name="pin"/>
+        <input type="number" name="value"/>
+        <input type="submit" value="Внести наличные"/>
+        <p></p>
+        <p>Прошло пополнение</p>>
+        <p th:text="${putAmount}"></p>
+    </fieldset>
+</form>
+<p>Блок функционала проверки баланса</p>
+Укажите номер карты, PIN код
+<form action="checkbalance" method="post">
+    <fieldset>
+        <input type="number" name="card"/>
+        <input type="password" name="pin"/>
+        <input type="submit" value="Проверить баланс"/>
+        <p></p>
+        <p>Ваш баланс</p>>
+        <p th:text="${balance}"></p>
+    </fieldset>
+</form>
+<p>Блок функционала изменения PIN кода</p>
+Укажите номер карты, PIN код и новый PIN код
+<form action="cahngepin" method="post">
+    <fieldset>
+        <input type="number" name="card"/>
+        <input type="password" name="pin"/>
+        <input type="password" name="newpin"/>
+        <input type="submit" value="Изменить PIN код"/>
+        <p></p>
+        <p>Ваш PIN изменен</p>>
+        <p th:text="${newpin}"></p>
+    </fieldset>
+</form>
+</body>
+</html>

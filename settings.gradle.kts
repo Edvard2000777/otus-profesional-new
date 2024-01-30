@@ -10,3 +10,4 @@ rootProject.name = "otus-profesional-new"
 include( "hw01-gradle")
 include( "hw3-generici")
 include( "otus-unittest-homework")
+include( "hw11-web-server")

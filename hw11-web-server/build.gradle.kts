@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "ru.otus.pro.psannikov"
+group = "ru.otus.pro.Yaremchuk"
 version = "unspecified"
 
 repositories {

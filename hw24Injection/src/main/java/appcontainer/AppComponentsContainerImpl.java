@@ -22,7 +22,7 @@ public class AppComponentsContainerImpl implements AppComponentsContainer {
 
     private void processConfig(Class<?> configClass) throws Exception {
         checkConfigClass(configClass);
-        checkDublicateAnnotationName(configClass);
+        //checkDublicateAnnotationName(configClass);
         for (Method method : configClass.getDeclaredMethods()) {
             if (method.isAnnotationPresent(AppComponent.class)) {
                 appComponents.add(method);

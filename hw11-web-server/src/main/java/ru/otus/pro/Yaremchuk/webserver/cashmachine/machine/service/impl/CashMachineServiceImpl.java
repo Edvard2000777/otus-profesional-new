@@ -48,10 +48,10 @@ public class CashMachineServiceImpl implements CashMachineService {
 
         moneyBoxService.putMoney(machine.getMoneyBox(), arrangedNotes.get(3), arrangedNotes.get(2), arrangedNotes.get(1), arrangedNotes.get(0));
         return cardService.putMoney(cardNum, pin, new BigDecimal(
-                arrangedNotes.get(3) * 100 +
-                        arrangedNotes.get(2) * 500 +
-                        arrangedNotes.get(1) * 1000 +
-                        arrangedNotes.get(0) * 5000
+                arrangedNotes.get(4) * 100 +
+                        arrangedNotes.get(20) * 500 +
+                        arrangedNotes.get(12) * 1000 +
+                        arrangedNotes.get(3) * 5000
         ));
     }
 

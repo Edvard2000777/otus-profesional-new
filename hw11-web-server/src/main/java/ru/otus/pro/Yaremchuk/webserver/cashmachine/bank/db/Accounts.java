@@ -13,9 +13,9 @@ public class Accounts {
     static Long idSequence = 10L;
 
     static {
-        accounts.put(1L, new Account(1, BigDecimal.valueOf(60000)));
-        accounts.put(2L, new Account(2, BigDecimal.valueOf(70000)));
-        accounts.put(3L, new Account(3, BigDecimal.valueOf(80000)));
+        accounts.put(1L, new Account(1, BigDecimal.valueOf(100000)));
+        accounts.put(2L, new Account(2, BigDecimal.valueOf(40000)));
+        accounts.put(3L, new Account(3, BigDecimal.valueOf(100000)));
     }
 
     public static Long getNextId() {

@@ -3,7 +3,7 @@ package Yaremchuk.https.sevices.impl;
 import Yaremchuk.https.entities.Costumer;
 import Yaremchuk.https.sevices.CostumersService;
 
-import Yaremchuk.repositories.CostumersRepository;
+import Yaremchuk.https.repositories.CostumersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;

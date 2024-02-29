@@ -19,7 +19,7 @@ import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import Yaremchuk.repositories.SubjectsRepository;
+import Yaremchuk.https.repositories.SubjectsRepository;
 
 
 import javax.net.ssl.SSLContext;
@@ -31,10 +31,10 @@ import java.util.Optional;
 public class SubjectsServiceImpl implements SubjectsService {
     private final SubjectsRepository subjectsRepository;
     private final RestTemplateBuilder templateBuilder;
-    @Value("${server.truststore.store}")
+    @Value("${server.ssl.truststore.store}")
     private Resource trustStore;
 
-    @Value("${server.truststore.password}")
+    @Value("${server.ssl.truststore.password}")
     private String trustStorePassword;
 
     @Autowired

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import Yaremchuk.https.entities.Teacher;
 import Yaremchuk.https.sevices.TeachersService;
 
-import Yaremchuk.repositories.TeachersRepository;
+import Yaremchuk.https.repositories.TeachersRepository;
 
 import java.util.Optional;
 

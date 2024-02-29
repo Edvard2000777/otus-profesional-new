@@ -5,7 +5,7 @@ import Yaremchuk.https.sevices.ExercisesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
-import Yaremchuk.repositories.ExercisesRepository;
+import Yaremchuk.https.repositories.ExercisesRepository;
 
 import java.util.List;
 

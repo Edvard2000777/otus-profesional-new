@@ -10,3 +10,7 @@ rootProject.name = "otus-profesional-new"
 include( "hw01-gradle")
 include( "hw3-generici")
 include( "otus-unittest-homework")
+include("Hw21Webflux:slow-service")
+findProject(":Hw21Webflux:slow-service")?.name = "slow-service"
+include("Hw21Webflux:reactive-service")
+findProject(":Hw21Webflux:reactive-service")?.name = "reactive-service"

@@ -14,12 +14,11 @@ public class CardsDao {
         if (card.getId() == 0) {
             return createCard(card.getNumber(), card.getAccountId(), card.getPinCode());
         }
-        Cards.cards.put(card.getNumber(), card);
-        return card;
+        return Cards.cards.put(card.getNumber(), card);
     }
 
     public Card createCard(String number, Long accountId, String pinCode) {
-        if (Cards.cards.containsKey(number)) {
+        if (Cards.cards.get(number) != null) {
             throw new IllegalStateException("Card already exists");
         }
 

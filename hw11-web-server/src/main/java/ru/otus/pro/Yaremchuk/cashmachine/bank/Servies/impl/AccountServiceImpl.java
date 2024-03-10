@@ -30,6 +30,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public BigDecimal getMoney(Long id, BigDecimal amount) {
+        if (accountDao == null) {
+            throw new IllegalStateException("AccountDao is not initialized");
+        }
+
         Account account = accountDao.getAccount(id);
         BigDecimal currentAmount = account.getAmount();
         BigDecimal newAmount = currentAmount.subtract(amount);
@@ -42,6 +46,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public BigDecimal putMoney(Long id, BigDecimal amount) {
+        if (accountDao == null) {
+            throw new IllegalStateException("AccountDao is not initialized");
+        }
+
         Account account = accountDao.getAccount(id);
         BigDecimal currentAmount = account.getAmount();
         BigDecimal newAmount = currentAmount.add(amount);
@@ -51,6 +59,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public BigDecimal checkBalance(Long id) {
+        if (accountDao == null) {
+            throw new IllegalStateException("AccountDao is not initialized");
+        }
+
         Account account = accountDao.getAccount(id);
         return account.getAmount();
     }

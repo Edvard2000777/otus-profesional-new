@@ -11,20 +11,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class CashMachineServiceImpl implements CashMachineService {
 
     private CardService cardService;
 
     private AccountService accountService;
-
     private MoneyBoxService moneyBoxService;
-
-    public CashMachineServiceImpl(final CardService cardService, final AccountService accountService, final MoneyBoxService moneyBoxService) {
-        this.cardService = cardService;
-        this.accountService = accountService;
-        this.moneyBoxService = moneyBoxService;
-    }
 
     @Override
     public List<Integer> getMoney(CashMachine machine, String cardNum, String pin, BigDecimal amount) {
@@ -39,7 +33,8 @@ public class CashMachineServiceImpl implements CashMachineService {
 
     @Override
     public BigDecimal putMoney(CashMachine machine, String cardNum, String pin, List<Integer> notes) {
-        cardService.getBalance(cardNum, pin);
+        cardService.putMoney(null, pin,null);
+        accountService.checkBalance(0L);
 
         List<Integer> arrangedNotes = new ArrayList<>(notes);
         for (int i = 0; i < 4 - arrangedNotes.size(); i++) {
@@ -62,6 +57,6 @@ public class CashMachineServiceImpl implements CashMachineService {
 
     @Override
     public boolean changePin(String cardNum, String oldPin, String newPin) {
-        return cardService.cnangePin(cardNum, oldPin, newPin);
+        return cardService.changePin(cardNum, oldPin, newPin);
     }
 }

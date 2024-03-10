@@ -28,33 +28,42 @@ public class MoneyBoxServiceImpl implements MoneyBoxService {
         moneyBox.setNote1000(moneyBox.getNote1000() + note1000);
         moneyBox.setNote5000(moneyBox.getNote5000() + note5000);
     }
+//сократи метод ниже чтобы было меньше if
+@Override
+public List<Integer> getMoney(MoneyBox moneyBox, int sum) {
+    List<Integer> result = new ArrayList<>(Arrays.asList(0, 0, 0, 0));
 
-    @Override
-    public List<Integer> getMoney(MoneyBox moneyBox, int sum) {
-        List<Integer> result = new ArrayList<>(Arrays.asList(0, 0, 0, 0));
+    int[] notes = {5000, 1000, 500, 100};
+    for (int i = 0; i < notes.length; i++) {
+        int requiredNotes = sum / notes[i];
+        int chargedNotes = Math.min(requiredNotes, getNotesCount(moneyBox, notes[i]));
+        sum -= chargedNotes * notes[i];
+        result.set(i, chargedNotes);
+        updateMoneyBox(moneyBox, notes[i], chargedNotes);
+    }
 
-        if (sum > checkSum(moneyBox)) {
-            throw new IllegalStateException("Not enough money");
+    if (sum > 0) {
+        throw new IllegalStateException("Not enough notes");
+    }
+
+    return result;
+}
+
+    private void updateMoneyBox(MoneyBox moneyBox, int noteValue, int chargedNotes) {
+        switch (noteValue) {
+            case 5000:
+                moneyBox.setNote5000(moneyBox.getNote5000() - chargedNotes);
+                break;
+            case 1000:
+                moneyBox.setNote1000(moneyBox.getNote1000() - chargedNotes);
+                break;
+            case 500:
+                moneyBox.setNote500(moneyBox.getNote500() - chargedNotes);
+                break;
+            case 100:
+                moneyBox.setNote100(moneyBox.getNote100() - chargedNotes);
+                break;
         }
-
-        if (sum % 100 != 0) {
-            throw new IllegalStateException("Can't charge the required sum");
-        }
-
-        int[] notes = {5000, 1000, 500, 100};
-        for (int i = 0; i < notes.length; i++) {
-            int requiredNotes = sum / notes[i];
-            int chargedNotes = Math.min(requiredNotes, getNotesCount(moneyBox, notes[i]));
-            sum -= chargedNotes * notes[i];
-            result.set(i, chargedNotes);
-        }
-
-        if (sum > 0) {
-            throw new IllegalStateException("Not enough notes");
-        }
-
-        updateMoneyBox(moneyBox, result);
-        return result;
     }
 
     private int getNotesCount(MoneyBox moneyBox, int noteValue) {

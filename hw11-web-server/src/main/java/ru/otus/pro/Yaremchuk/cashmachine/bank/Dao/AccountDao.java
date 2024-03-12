@@ -6,7 +6,7 @@ import ru.otus.pro.Yaremchuk.cashmachine.bank.db.Accounts;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Repository
 public class AccountDao {
   Map<Long, Account> accounts = new HashMap<>();
 
